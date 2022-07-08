@@ -1,3 +1,4 @@
+import { differenceInCalendarDays } from "date-fns-jalali";
 import { existsSync, readFileSync, writeFileSync, } from "fs";
 import { Lessons } from "../model";
 
@@ -10,10 +11,9 @@ var lessons: Lessons = []
 
 
 function daysFrom(date: number) {
-    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-    const firstDate = new Date(date).getTime();
-    const secondDate = new Date().getTime();
-    return Math.round(Math.abs((firstDate - secondDate) / oneDay));
+    const firstDate = new Date(date);
+    const secondDate = new Date();
+    return differenceInCalendarDays(secondDate, firstDate);
 }
 
 
