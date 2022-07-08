@@ -1,7 +1,7 @@
 // Import the RTK Query methods from the React-specific entry point
-import { isRejectedWithValue, Middleware, MiddlewareAPI } from '@reduxjs/toolkit'
-import { createApi } from '@reduxjs/toolkit/query/react'
+import { isRejectedWithValue, Middleware, MiddlewareAPI } from '@reduxjs/toolkit';
 import { fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi } from '@reduxjs/toolkit/query/react';
 
 export const rtkQueryErrorLogger: Middleware =
   (api: MiddlewareAPI) => (next) => (action) => {
@@ -17,7 +17,7 @@ export const apiSlice = createApi({
   reducerPath: 'api',
   // All of our requests will have URLs starting with '/fakeApi'
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:80/',
+    baseUrl: window.location.origin,
   }),
   // The "endpoints" represent operations and requests for this server
   endpoints: builder => ({})
