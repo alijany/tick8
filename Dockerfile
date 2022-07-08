@@ -19,6 +19,11 @@ COPY . .
 RUN parcel build front/index.html
 RUN esbuild server.ts --bundle --platform=node --minify --outfile=./dist/server.js
 
+# clean up
+FROM node:16-alpine
+
+COPY --from=0 /usr/src/app  /
+
 # use the EXPOSE instruction to port maping
 EXPOSE 80
 
