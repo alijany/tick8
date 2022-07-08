@@ -22,7 +22,7 @@ RUN esbuild server.ts --bundle --platform=node --minify --outfile=./dist/server.
 # clean up
 FROM node:16-alpine
 
-COPY --from=0 /usr/src/app  /
+COPY --from=0 /usr/src/app/dist  /dist
 
 # use the EXPOSE instruction to port maping
 EXPOSE 80

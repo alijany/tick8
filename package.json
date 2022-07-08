@@ -7,9 +7,9 @@
     "front": "npx parcel build front/index.html",
     "front:dev": "npx parcel front/index.html",
     "back": "npx esbuild server.ts --bundle --platform=node --minify --outfile=./dist/server.js",
-    "build": "docker build -t alijany/node-web-app:beta .",
-    "run": "docker run -d -p 80:80 alijany/node-web-app:",
-    "push": "docker push alijany/node-web-app:beta"
+    "build": "docker build -t alijany/node-web-app:%npm_package_version% .",
+    "run": "docker run -d -p 80:80 alijany/node-web-app:%npm_package_version%",
+    "push": "docker push alijany/node-web-app:%npm_package_version%"
   },
   "author": "",
   "license": "ISC",
