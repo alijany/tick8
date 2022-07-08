@@ -20,6 +20,6 @@ RUN parcel build front/index.html
 RUN esbuild server.ts --bundle --platform=node --minify --outfile=./dist/server.js
 
 # use the EXPOSE instruction to port maping
-EXPOSE 3130
+EXPOSE 80
 
 CMD [ "node", "dist/server.js" ]
