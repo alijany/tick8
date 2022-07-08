@@ -16,7 +16,7 @@ RUN yarn global add parcel esbuild
 # Bundle app source
 COPY . .
 
-RUN parcel build front/index.html
+RUN parcel build front/index.html --no-source-maps
 RUN esbuild server.ts --bundle --platform=node --minify --outfile=./dist/server.js
 
 # clean up
